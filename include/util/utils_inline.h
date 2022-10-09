@@ -33,9 +33,8 @@ inline int get_max_events_num_of_aio() {
 inline void get_bin_metadata(const std::string &bin_file, uint32_t &nrows,
                              uint32_t &ncols) {
   std::ifstream reader(bin_file, std::ios::binary);
+  reader.read((char *)&nrows, sizeof(uint32_t));
   reader.read((char *)&ncols, sizeof(uint32_t));
-  reader.seekg(0, std::ios::end);
-  nrows = reader.tellg() / (ncols + 1) / sizeof(float);
   reader.close();
   std::cout << "get meta from " << bin_file << ", nrows = " << nrows
             << ", ncols = " << ncols << std::endl;
