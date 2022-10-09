@@ -69,8 +69,8 @@ void train_cluster(const std::string &raw_data_bin_file,
             << " centroids: " << *centroids << std::endl;
   assert((*centroids) == nullptr);
   DATAT *sample_data = nullptr;
-  size_t nb, dim;
-  util::get_size_bin_metadata(raw_data_bin_file, nb, dim);
+  uint32_t nb, dim;
+  util::get_bin_metadata(raw_data_bin_file, nb, dim);
   int64_t sample_num = nb * K1_SAMPLE_RATE;
   std::cout << "nb = " << nb << ", dim = " << dim
             << ", sample_num 4 K1: " << sample_num << std::endl;
