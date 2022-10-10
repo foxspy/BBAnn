@@ -35,12 +35,12 @@ int main(int argc, char **argv) {
 
   int dim, n_query;
   std::vector<float> queryData;
-  std::string query_path = para.dataFilePath;
-  GenWithInput(para.dataFilePath, dim, n_query, queryData);
+  std::string query_path = para.dataFilePath + "_query.fvecs";
+  GenWithInput(query_path, dim, n_query, queryData);
 
   int top_k, n_result;
   std::vector<int> ground;
-  std::string ground_path = para.dataFilePath;
+  std::string ground_path = para.dataFilePath + "_groundtruth.ivecs";
   GenWithInput(para.dataFilePath, top_k, n_result, ground);
 
   uint32_t* answer_ids = new uint32_t[top_k * n_query];
