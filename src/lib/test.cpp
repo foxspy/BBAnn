@@ -41,7 +41,9 @@ int main(int argc, char **argv) {
   int top_k, n_result;
   std::vector<int> ground;
   std::string ground_path = para.dataFilePath + "_groundtruth.ivecs";
-  GenWithInput(para.dataFilePath, top_k, n_result, ground);
+  GenWithInput(ground_path, top_k, n_result, ground);
+
+  para.K = top_k;
 
   uint32_t* answer_ids = new uint32_t[top_k * n_query];
   float* dist = new float [top_k * n_query];
