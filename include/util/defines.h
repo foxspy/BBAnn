@@ -35,14 +35,14 @@ struct BBAnnParameters {
   std::string indexPrefixPath;
   std::string queryPath;
   std::string groundTruthFilePath;
-  MetricType metric;
+  MetricType metric = MetricType::L2;
   int K = 20; // top k.
-  int hnswM = 32;
-  int hnswefC = 500;
+  int hnswM = 16;
+  int hnswefC = 200;
   int K1 = 20;
-  int blockSize = 1;
+  int blockSize = 4096;
   int nProbe = 2;
-  int efSearch = 250;
+  int efSearch = 200;
   int rangeSearchProbeCount = 20;
   int aio_EventsPerBatch = 512;
   int sample = 1;
